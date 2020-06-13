@@ -8,16 +8,18 @@ namespace SimpleTradingSystem
 {
     public enum MenuOptions
     {
+        [Display(Name = "List all accounts")]
+        ListAllAccount = 1,
         [Display(Name = "Add an Item to an account")]
-        AddNewItem = 1,
-        [Display (Name = "Display your Items")]
-        DisplayItem = 2,
+        AddNewItem = 2,
+        [Display (Name = "Display an Account's Items")]
+        DisplayItem = 3,
         [Display(Name = "Trade items")]
-        TradeItem = 3,
+        TradeItem = 4,
         [Display(Name = "Add a new Account")]
-        AddNewAccount = 4,
+        AddNewAccount = 5,
         [Display(Name = "Quit")]
-        Quit = 5,
+        Quit = 6,
     }
 
     class TradingSystem
@@ -42,13 +44,16 @@ namespace SimpleTradingSystem
                 //Clear Console each time some thing is executed
                 Console.Clear();
                 Console.WriteLine("-------A simple Trading System by Thanh Nguyen-------");
-                Console.WriteLine();
-                Console.WriteLine($"Welcome, admin");
-                thisMarket.PrintAllAccount();
+                Console.WriteLine($"\nWelcome, admin\n");
                 //Print UI, take actions based on user's Input
                 MenuOptions option = ReadUserInput();
                 switch (option)
                 {
+                    case MenuOptions.ListAllAccount:
+                        {
+                            ListAllAccount(thisMarket);
+                            break;
+                        }
                     case MenuOptions.AddNewItem:
                         {
                             AddNewItem(thisMarket);
@@ -61,6 +66,7 @@ namespace SimpleTradingSystem
                         }
                     case MenuOptions.TradeItem:
                         {
+                            Trade(thisMarket);
                             break;
                         }
                     case MenuOptions.AddNewAccount:
@@ -76,6 +82,11 @@ namespace SimpleTradingSystem
             }
         }
         //Methods
+        private static void ListAllAccount(Market market)
+        {
+            market.PrintAllAccount();
+            Console.ReadKey();
+        }
         private static void AddNewItem(Market market)
         {
             Account account = FindAccount(market);
@@ -116,6 +127,45 @@ namespace SimpleTradingSystem
             market.AddAccount(new Account(accountName));
         }
 
+        private static void Trade(Market market)
+        {
+            Console.WriteLine("From account: ");
+            Account fromAccount = FindAccount(market);
+            if (fromAccount == null)
+            {
+                Console.WriteLine("Transaction canceled!");
+                Console.ReadKey();
+                return;
+            }
+            Console.WriteLine("To account: ");
+            Account toAccount = FindAccount(market);
+            if (fromAccount != null && toAccount != null)
+            {
+                Console.WriteLine($"Which item from {fromAccount.Name}?");
+                Item fromItem = FindItem(fromAccount);
+                Console.WriteLine($"Which item from {toAccount.Name}?");
+                Item toItem = FindItem(toAccount);
+
+                Transaction tradeTransaction = new Transaction(fromAccount, toAccount, fromItem, toItem);
+                market.ExecuteTransaction(tradeTransaction);
+            }
+            else
+            {
+                Console.WriteLine("Transaction canceled!");
+                Console.ReadKey();
+                return;
+            }
+
+
+        }
+
+        private static Item FindItem(Account account)
+        {
+            account.PrintItems();
+            Console.WriteLine("Choose an item");
+            int userInput = InputToInt(Console.ReadLine());
+            return account.Items[userInput - 1];
+        }
 
         private static Account FindAccount(Market market)
         {

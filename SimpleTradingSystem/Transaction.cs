@@ -8,18 +8,22 @@ namespace SimpleTradingSystem
     {
         Account _fromAccount;
         Account _toAccount;
-        Item _item;
-        public Transaction (Account fromAccount, Account toAccount, Item item)
+        Item _fromItem;
+        Item _toItem;
+        public Transaction (Account fromAccount, Account toAccount, Item fromItem, Item toItem)
         {
             this._fromAccount = fromAccount;
             this._toAccount = toAccount;
-            this._item = item;
+            this._fromItem = fromItem;
+            this._toItem = toItem;
         }
         
         public void Execute()
         {
-            this._fromAccount.RemoveItem(this._item);
-            this._toAccount.AddItem(this._item);
+            this._fromAccount.RemoveItem(_fromItem);
+            this._toAccount.RemoveItem(_toItem);
+            this._fromAccount.AddItem(_toItem);
+            this._toAccount.AddItem(_fromItem);
         }
     }
 }
