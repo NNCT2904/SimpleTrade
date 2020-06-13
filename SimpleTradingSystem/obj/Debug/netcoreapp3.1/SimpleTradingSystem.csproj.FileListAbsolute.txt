@@ -1,0 +1,13 @@
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\bin\Debug\netcoreapp3.1\SimpleTradingSystem.exe
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\bin\Debug\netcoreapp3.1\SimpleTradingSystem.deps.json
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\bin\Debug\netcoreapp3.1\SimpleTradingSystem.runtimeconfig.json
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\bin\Debug\netcoreapp3.1\SimpleTradingSystem.runtimeconfig.dev.json
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\bin\Debug\netcoreapp3.1\SimpleTradingSystem.dll
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\bin\Debug\netcoreapp3.1\SimpleTradingSystem.pdb
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\obj\Debug\netcoreapp3.1\SimpleTradingSystem.csprojAssemblyReference.cache
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\obj\Debug\netcoreapp3.1\SimpleTradingSystem.csproj.CoreCompileInputs.cache
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\obj\Debug\netcoreapp3.1\SimpleTradingSystem.AssemblyInfoInputs.cache
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\obj\Debug\netcoreapp3.1\SimpleTradingSystem.AssemblyInfo.cs
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\obj\Debug\netcoreapp3.1\SimpleTradingSystem.dll
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\obj\Debug\netcoreapp3.1\SimpleTradingSystem.pdb
+D:\good things\New folder\SimpleTrade\SimpleTradingSystem\obj\Debug\netcoreapp3.1\SimpleTradingSystem.genruntimeconfig.cache
